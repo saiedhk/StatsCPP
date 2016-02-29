@@ -21,5 +21,3 @@ and then calculate simple statistics such as mean, standard deviation of the X(t
 You can also compute the histogram of the process. In this case, a histogram paritions
 the X-axis into many bins (intervals) and computes the percentage of the time X spends
 in each bin. You can then print the histogram.
-This class comes usually handy when you do discrete-event simulations.
-
