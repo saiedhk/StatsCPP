@@ -127,17 +127,17 @@ class TStats
         double  calcMin(void);                  // returns minimum of samples
         double  calcMax(void);                  // returns maximum of samples
     private:
-        double  tnow;           // sampling time of most recent sample
-        double  sum;            // time integral of stochastic process
-        double  sumsq;          // time integral of square of stochastic process
-        double  min;            // min of samples
-        double  max;            // max of samples
-        bool    histo;          // histogram is calculated if histo=true
-        int     nbin;           // number of bins in histogram
-        double  bin;            // size of a bin in histogram
-        double  lo;             // lower bound of histogram
-        double  hi;             // higher bound of histogram
-        double* histogram;      // array of histogram bins
+        double  tnow;                           // sampling time of most recent sample
+        double  sum;                            // time integral of stochastic process
+        double  sumsq;                          // time integral of square of stochastic process
+        double  min;                            // min of samples
+        double  max;                            // max of samples
+        bool    histo;                          // histogram is calculated if histo=true
+        int     nbin;                           // number of bins in histogram
+        double  bin;                            // size of a bin in histogram
+        double  lo;                             // lower bound of histogram
+        double  hi;                             // higher bound of histogram
+        double* histogram;                      // array of histogram bins
 };
 
 inline double TStats::getTime() { return tnow; }
