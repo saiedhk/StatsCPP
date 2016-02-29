@@ -8,9 +8,9 @@
 using namespace std;
 
 #include "shk_stats.h"
-namespace shk {
+namespace shk 
+{
 
-const double INFTY = DBL_MAX;
 
 /*---------------------------------------------------------------
 Stats Functions
@@ -56,8 +56,8 @@ void Stats::resetStats(void)
     count = 0;
     sum = 0.;
     sumsq = 0.;
-    min = INFTY;
-    max = -INFTY;
+    min = DBL_MAX;
+    max = -DBL_MAX;
     if (histo)
         for (int i=0; i < nbin+2; i++)
             histogram[i] = 0;
@@ -232,8 +232,8 @@ void TStats::resetTStats()
     tnow = 0.;
     sum = 0.;
     sumsq = 0.;
-    min = INFTY;
-    max = -INFTY;
+    min = DBL_MAX;
+    max = -DBL_MAX;
     if (histo)
         for (int i=0; i < nbin+2; i++)
             histogram[i] = 0.;
@@ -350,21 +350,18 @@ Useful Non-class Functions
 ---------------------------------------------------------------*/
 
 /*
-The following function is used to compute the "confidence interval" for
-the mean of sample means.
-Suppose you run a simulation n times and each time you compute an average
-quantity, X_i, for some quantity of interest in your simulated system.
-Then you compute the mean of X_i's, denote X_bar. In theory, X_bar is a
-good estimate for the mean of quantity of interest. But you want to compute
-a "margin of error" for X_bar. The following function can used to return
-the margin of error. It needs to know n and the standard deviation of X_i's.
+The following function is used to compute the "confidence interval" for the mean of sample means.
+Suppose you run a simulation n times and each time you compute an average quantity, X_i, 
+for some quantity of interest in your simulated system. Then you compute the mean of X_i's, 
+denote X_bar. In theory, X_bar is a good estimate for the mean of quantity of interest. 
+But if you want to compute a "margin of error" for X_bar, the following function can used 
+to return the margin of error. It needs to know n and the standard deviation of X_i's.
 
-After you computed the margin of error, you can compute a "confidence interval"
+After you have computed the margin of error, you can compute a "confidence interval"
 for X_bar:
     X_bar - margin_of error < mean < X_bar + margin_of error
 
-For this function to return a reliable value, the number of samples n should be
-large (e.g. > 100).
+For this function to return a reliable value, the number of samples n should be large (e.g. > 100).
 */
 double calcErrorMargin(
     double stdev,            // standard deviation of X_i's
